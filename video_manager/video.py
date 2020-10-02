@@ -22,6 +22,9 @@ class Video:
                 # TODO(QuentinN42): raise more specific exception
                 raise
 
+    def __getitem__(self, item):
+        return self.cams[item].read()[1]
+
     def __del__(self):
         for cam in self.cams.values():
             cam.release()
