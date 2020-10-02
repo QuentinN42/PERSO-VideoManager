@@ -21,3 +21,7 @@ class Video:
             except Exception:
                 # TODO(QuentinN42): raise more specific exception
                 raise
+
+    def __del__(self):
+        for cam in self.cams.values():
+            cam.release()
